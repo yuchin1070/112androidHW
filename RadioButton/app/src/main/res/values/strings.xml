@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RadioButton</string>
+    <string name="male">男生</string>
+    <string name="female">女生</string>
+    <string name="regularticket">全票\n(NTD500)</string>
+    <string name="childticket">兒童票\n(NTD250)</string>
+    <string name="studentticket">學生票\n(NTD400)</string>
+</resources>

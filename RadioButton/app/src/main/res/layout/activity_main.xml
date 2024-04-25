@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -45,40 +46,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="184dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgGender">
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
             android:id="@+id/rdbAdult"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="全票$500" />
+            android:text="全票\n(NTD500)" />
 
         <RadioButton
             android:id="@+id/rdbChild"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="兒童票$250" />
+            android:text="兒童票\n(NTD250)" />
 
         <RadioButton
             android:id="@+id/rdbStudent"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="學生票$400" />
+            android:text="學生票\n(NTD400)" />
     </RadioGroup>
-
-    <EditText
-        android:id="@+id/etQuantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="8dp"
-        android:hint="輸入票數:"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgType" />
 
     <Button
         android:id="@+id/button"
@@ -87,9 +77,9 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="20dp"
         android:onClick="button_Click"
-        android:text="確認"
+        android:text="選擇"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etQuantity" />
+        app:layout_constraintTop_toBottomOf="@+id/rgType" />
 
     <TextView
         android:id="@+id/lblOutput"
@@ -100,4 +90,5 @@
         android:text="TextView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
