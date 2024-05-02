@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -29,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
                 RadioButton girl = (RadioButton) findViewById(R.id.rdbGirl);
 
                 if (boy.isChecked())
-                    outputStr += "性別: 男生\n";
+                    outputStr += getResources().getString(R.string.male) + "\n";
                 else if (girl.isChecked())
-                    outputStr += "性別: 女生\n";
+                    outputStr += getResources().getString(R.string.female) + "\n";
 
                 RadioGroup type = (RadioGroup) findViewById(R.id.rgType);
 
@@ -39,20 +40,21 @@ public class MainActivity extends AppCompatActivity {
                 double ticketPrice = 0;
 
                 if (selectedTypeId == R.id.rdbAdult) {
-                    outputStr += "票種: 全票\n";
+                    outputStr += getResources().getString(R.string.regularticket) + "\n";
                     ticketPrice = 500;
                 } else if (selectedTypeId == R.id.rdbChild) {
-                    outputStr += "票種: 兒童票\n";
+                    outputStr += getResources().getString(R.string.childticket) + "\n";
                     ticketPrice = 250;
                 } else {
-                    outputStr += "票種: 學生票\n";
+                    outputStr += getResources().getString(R.string.studentticket) + "\n";
                     ticketPrice = 400;
                 }
 
                 EditText quantityEditText = findViewById(R.id.etQuantity);
                 int quantity = Integer.parseInt(quantityEditText.getText().toString());
                 double totalPrice = ticketPrice * quantity;
-                outputStr += "張數: " + quantity + "\n金額: $" + totalPrice;
+                outputStr += getResources().getString(R.string.numberOfTickets) + quantity + "\n" +
+                        getResources().getString(R.string.total) + "$" + totalPrice;
 
                 TextView output = (TextView) findViewById(R.id.lblOutput);
                 output.setText(outputStr);
