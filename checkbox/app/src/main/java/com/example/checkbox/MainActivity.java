@@ -5,19 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CheckBox chk1, chk2, chk3, chk4;
-    private ImageView output1, output2, output3, output4;
+    CheckBox chk1, chk2, chk3, chk4;
+    ImageView output1, output2, output3, output4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 初始化各個元件
         chk1 = findViewById(R.id.chk1);
         chk2 = findViewById(R.id.chk2);
         chk3 = findViewById(R.id.chk3);
@@ -27,39 +29,50 @@ public class MainActivity extends AppCompatActivity {
         output2 = findViewById(R.id.output2);
         output3 = findViewById(R.id.output3);
         output4 = findViewById(R.id.output4);
-    }
 
-    public void placeOrder(View view) {
-        StringBuilder orderSummary = new StringBuilder("Your order:");
+        // 監聽勾選狀態的變化
+        chk1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    output1.setVisibility(ImageView.VISIBLE);
+                } else {
+                    output1.setVisibility(ImageView.INVISIBLE);
+                }
+            }
+        });
 
-        if (chk1.isChecked()) {
-            orderSummary.append("\n漢堡");
-            output1.setImageResource(R.drawable.burger);
-        } else {
-            output1.setImageResource(android.R.color.transparent);
-        }
+        chk2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    output2.setVisibility(ImageView.VISIBLE);
+                } else {
+                    output2.setVisibility(ImageView.INVISIBLE);
+                }
+            }
+        });
 
-        if (chk2.isChecked()) {
-            orderSummary.append("\n咖啡");
-            output2.setImageResource(R.drawable.coffee);
-        } else {
-            output2.setImageResource(android.R.color.transparent);
-        }
+        chk3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    output3.setVisibility(ImageView.VISIBLE);
+                } else {
+                    output3.setVisibility(ImageView.INVISIBLE);
+                }
+            }
+        });
 
-        if (chk3.isChecked()) {
-            orderSummary.append("\n薯條");
-            output3.setImageResource(R.drawable.frenchfry);
-        } else {
-            output3.setImageResource(android.R.color.transparent);
-        }
-
-        if (chk4.isChecked()) {
-            orderSummary.append("\n飲料");
-            output4.setImageResource(R.drawable.softdrink);
-        } else {
-            output4.setImageResource(android.R.color.transparent);
-        }
-
-        Toast.makeText(this, orderSummary.toString(), Toast.LENGTH_SHORT).show();
+        chk4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    output4.setVisibility(ImageView.VISIBLE);
+                } else {
+                    output4.setVisibility(ImageView.INVISIBLE);
+                }
+            }
+        });
     }
 }
